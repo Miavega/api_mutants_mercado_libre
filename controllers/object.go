@@ -5,7 +5,7 @@ import (
 
 	"github.com/Miavega/api_mutants/models"
 
-	beego "github.com/beego/beego/v2/server/web"
+	"github.com/astaxie/beego"
 )
 
 // Operations about object
