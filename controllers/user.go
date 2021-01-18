@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"api_mutant/models"
 	"encoding/json"
+
+	"github.com/Miavega/api_mutants/models"
 
 	beego "github.com/beego/beego/v2/server/web"
 )
@@ -116,4 +117,3 @@ func (u *UserController) Logout() {
 	u.Data["json"] = "logout success"
 	u.ServeJSON()
 }
-

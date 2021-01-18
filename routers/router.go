@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"api_mutant/controllers"
+	"github.com/Miavega/api_mutants/controllers"
 
 	beego "github.com/beego/beego/v2/server/web"
 )

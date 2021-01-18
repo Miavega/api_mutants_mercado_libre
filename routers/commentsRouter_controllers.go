@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["api_mutant/controllers:MutantController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:MutantController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -16,7 +16,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:MutantController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:MutantController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -25,7 +25,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:MutantController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:MutantController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: "/:id",
@@ -34,7 +34,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:MutantController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:MutantController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:id",
@@ -43,7 +43,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:MutantController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:MutantController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:id",
@@ -52,7 +52,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -61,7 +61,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -70,7 +70,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Get",
             Router: "/:objectId",
@@ -79,7 +79,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:objectId",
@@ -88,7 +88,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:ObjectController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:objectId",
@@ -97,7 +97,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -106,7 +106,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -115,7 +115,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "Get",
             Router: "/:uid",
@@ -124,7 +124,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:uid",
@@ -133,7 +133,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:uid",
@@ -142,7 +142,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "Login",
             Router: "/login",
@@ -151,7 +151,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api_mutant/controllers:UserController"] = append(beego.GlobalControllerRouter["api_mutant/controllers:UserController"],
+    beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:UserController"],
         beego.ControllerComments{
             Method: "Logout",
             Router: "/logout",

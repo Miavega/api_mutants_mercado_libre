@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"api_mutant/models"
 	"encoding/json"
+
+	"github.com/Miavega/api_mutants/models"
 
 	beego "github.com/beego/beego/v2/server/web"
 )
@@ -89,4 +90,3 @@ func (o *ObjectController) Delete() {
 	o.Data["json"] = "delete success!"
 	o.ServeJSON()
 }
-

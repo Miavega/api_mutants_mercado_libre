@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "api_mutant/routers"
+	_ "github.com/Miavega/api_mutants/routers"
 
 	beego "github.com/beego/beego/v2/server/web"
 )
