@@ -33,6 +33,6 @@ func (c *MutantController) Post() {
 	if !res {
 		c.Abort("403")
 	}
-	c.Data["json"] = true
+	c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "Request successful"}
 	c.ServeJSON()
 }
