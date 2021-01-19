@@ -1,6 +1,6 @@
 lastupdate.tmp
 .vscode/
-api_mutants.exe
+api_mutants_mercado_libre.exe
 main
 go.mod
 go.sum

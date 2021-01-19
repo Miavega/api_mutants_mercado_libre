@@ -9,9 +9,9 @@ type Mutant struct {
 
 // MutantDb database mutant struct
 type MutantDb struct {
-	ID       int      `orm:"column(id);pk;auto"`
-	Dna      []string `orm:"column(dna)"`
-	IsMutant bool     `orm:"column(is_mutant)"`
+	ID       int    `orm:"column(id);pk;auto"`
+	Dna      string `orm:"column(dna)"`
+	IsMutant bool   `orm:"column(is_mutant)"`
 }
 
 // TableName database entity
