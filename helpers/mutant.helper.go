@@ -2,10 +2,12 @@ package helpers
 
 import (
 	"strings"
+
+	"github.com/Miavega/api_mutants/models"
 )
 
 // Validate validate if human is mutant
-func Validate(dna []string) bool {
+func Validate(dna []string) (bool, error) {
 	var matriz [][]string
 	var alteracionADN int = 0
 
@@ -36,17 +38,29 @@ func Validate(dna []string) bool {
 				}
 			}
 			if alteracionADN > 1 {
-				return true
+				if _, err := saveMutantResult(dna, true); err == nil {
+					return true, nil
+				}
 			}
 		}
 	}
-	return false
+	if _, err := saveMutantResult(dna, true); err == nil {
+		return false, nil
+	}
+
+	return false, nil
 }
 
-// IsMutant return if human is mutant
 func isMutant(a, b, c, d string) bool {
 	if a == b && b == c && c == d {
 		return true
 	}
 	return false
+}
+
+func saveMutantResult(dna []string, result bool) (int64, error) {
+	var mutantDb models.Mutant
+	mutantDb.Dna = strings.Join(dna, ",")
+	mutantDb.IsMutant = result
+	return models.AddMutant(&mutantDb)
 }

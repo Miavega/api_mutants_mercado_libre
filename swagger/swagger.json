@@ -52,11 +52,15 @@
             "title": "Mutant",
             "type": "object",
             "properties": {
-                "dna": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                "Dna": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IsMutant": {
+                    "type": "boolean"
                 }
             }
         }

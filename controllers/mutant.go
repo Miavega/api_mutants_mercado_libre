@@ -27,12 +27,17 @@ func (c *MutantController) URLMapping() {
 // @Failure 403 body is empty
 // @router / [post]
 func (c *MutantController) Post() {
-	var mutant models.Mutant
+	var mutant models.MutantStructure
 	json.Unmarshal(c.Ctx.Input.RequestBody, &mutant)
-	res := helpers.Validate(mutant.Dna)
-	if !res {
-		c.Abort("403")
+	if res, err := helpers.Validate(mutant.Dna); err == nil {
+		if !res {
+			c.Data["json"] = map[string]interface{}{"Success": res, "Status": "403", "Message": "DNA not Mutant"}
+			c.Abort("403")
+		}
+		c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA Mutant"}
+	} else {
+		c.Data["json"] = map[string]interface{}{"Error": res, "Status": "500", "Message": "Request failure"}
+		c.Abort("500")
 	}
-	c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "Request successful"}
 	c.ServeJSON()
 }
