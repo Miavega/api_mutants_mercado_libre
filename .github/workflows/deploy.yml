@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build and Test
-        run: make test
+        run: ls && make test
 
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
