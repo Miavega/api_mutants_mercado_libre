@@ -7,6 +7,7 @@ import (
 
 	"github.com/Miavega/api_mutants/models"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/validation"
 )
 
 // MutantController operations for Mutant
@@ -28,16 +29,30 @@ func (c *MutantController) URLMapping() {
 // @router / [post]
 func (c *MutantController) Post() {
 	var mutant models.MutantStructure
+	valid := validation.Validation{}
 	json.Unmarshal(c.Ctx.Input.RequestBody, &mutant)
-	if res, err := helpers.Validate(mutant.Dna); err == nil {
-		if !res {
-			c.Data["json"] = map[string]interface{}{"Success": res, "Status": "403", "Message": "DNA not Mutant"}
-			c.Abort("403")
+	if mutantValidate, err := valid.Valid(&mutant); err == nil {
+		if mutantValidate {
+			if res, err := helpers.Validate(mutant.Dna); err == nil {
+				if !res {
+					c.Data["mesaage"] = "DNA evaluated is from a human"
+					c.Abort("403")
+				}
+				c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA evaluated is from a Mutant"}
+			} else {
+				c.Data["mesaage"] = "Request failure"
+				c.Abort("500")
+			}
+		} else {
+			for _, err := range valid.Errors {
+				c.Data["mesaage"] = "Request failure: Input not valid - " + err.Key + err.Message
+			}
+			c.Abort("422")
 		}
-		c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA Mutant"}
 	} else {
-		c.Data["json"] = map[string]interface{}{"Error": res, "Status": "500", "Message": "Request failure"}
+		c.Data["mesaage"] = "Request failure"
 		c.Abort("500")
 	}
+
 	c.ServeJSON()
 }

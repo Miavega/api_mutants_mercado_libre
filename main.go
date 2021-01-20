@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/Miavega/api_mutants/helpers"
 	_ "github.com/Miavega/api_mutants/routers"
 	"github.com/astaxie/beego"
@@ -20,12 +18,6 @@ func main() {
 		beego.AppConfig.String("PGport")+"/"+
 		beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+
 		beego.AppConfig.String("PGschema")+"")
-	fmt.Println(beego.AppConfig.String("PGuser") + ":" +
-		beego.AppConfig.String("PGpass") + "@" +
-		beego.AppConfig.String("PGhost") + ":" +
-		beego.AppConfig.String("PGport") + "/" +
-		beego.AppConfig.String("PGdb") + "?sslmode=disable&search_path=" +
-		beego.AppConfig.String("PGschema") + "")
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"

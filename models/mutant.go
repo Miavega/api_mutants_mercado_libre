@@ -4,7 +4,7 @@ import "github.com/astaxie/beego/orm"
 
 // MutantStructure input mutant struct
 type MutantStructure struct {
-	Dna []string `json:"dna"`
+	Dna []string `json:"dna" valid:"Required;Match(/[A-CGT]/)"`
 }
 
 // Mutant database mutant struct
