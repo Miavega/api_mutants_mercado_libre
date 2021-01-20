@@ -38,7 +38,7 @@ func (c *MutantController) Post() {
 					c.Data["mesaage"] = "DNA evaluated is from a human"
 					c.Abort("403")
 				}
-				c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA evaluated is from a Mutant", "Data": "Te amo andrea"}
+				c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA evaluated is from a Mutant"}
 			} else {
 				c.Data["mesaage"] = "Request failure"
 				c.Abort("500")
