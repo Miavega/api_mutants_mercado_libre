@@ -23,7 +23,7 @@ func (c *StatsController) URLMapping() {
 // @Failure 404 not found resource
 // @router / [get]
 func (c *StatsController) GetStats() {
-	v, err := models.GetStats()
+	v, err := models.GetStatsById(1)
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"

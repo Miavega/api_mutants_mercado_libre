@@ -88,7 +88,19 @@
             "title": "Stats",
             "type": "object",
             "properties": {
+                "CountHumanDna": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "CountMutantDna": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Ratio": {
                     "type": "integer",
                     "format": "int64"
                 }
