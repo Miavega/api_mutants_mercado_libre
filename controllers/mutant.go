@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 
 	"github.com/Miavega/api_mutants/helpers"
 
@@ -35,7 +34,6 @@ func (c *MutantController) Post() {
 	if mutantValidate, err := valid.Valid(&mutant); err == nil {
 		if mutantValidate {
 			if res, err := helpers.Validate(mutant.Dna); err == nil {
-				fmt.Println("Lleggue controler")
 				if !res {
 					c.Data["mesaage"] = "DNA evaluated is from a human"
 					c.Abort("403")

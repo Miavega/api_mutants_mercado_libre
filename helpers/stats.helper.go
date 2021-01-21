@@ -1,6 +1,8 @@
 package helpers
 
 import (
+	"fmt"
+
 	"github.com/Miavega/api_mutants/models"
 )
 
@@ -14,18 +16,18 @@ func UpdateStats(result bool) {
 
 	if stats, err := models.GetStatsById(1); err == nil {
 		if result {
-			stats.CountMutantDna++
+			stats.CountMutantDna = stats.CountMutantDna + 1
 		} else {
-			stats.CountHumanDna++
+			stats.CountHumanDna = stats.CountHumanDna + 1
 		}
-
 		if stats.CountHumanDna != 0 {
-			stats.Ratio = stats.CountMutantDna / stats.CountHumanDna
+			stats.Ratio = float64(stats.CountMutantDna) / float64(stats.CountHumanDna)
 		} else {
-			stats.Ratio = stats.CountMutantDna
+			stats.Ratio = float64(stats.CountMutantDna)
 		}
 
-		models.UpdateStats(stats)
+		err := models.UpdateStats(stats)
+		fmt.Println(err)
 
 	}
 }

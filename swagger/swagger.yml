@@ -70,8 +70,8 @@ definitions:
         type: integer
         format: int64
       Ratio:
-        type: integer
-        format: int64
+        type: number
+        format: double
 tags:
 - name: mutant
   description: |
