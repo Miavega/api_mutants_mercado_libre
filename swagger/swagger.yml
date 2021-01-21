@@ -31,6 +31,19 @@ paths:
             $ref: '#/definitions/models.Mutant'
         "403":
           description: body is empty
+  /stats/:
+    get:
+      tags:
+      - stats
+      description: get Mutant Stats
+      operationId: StatsController.Get Stats
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Stats'
+        "404":
+          description: not found resource
 definitions:
   models.Mutant:
     title: Mutant
@@ -43,7 +56,17 @@ definitions:
         format: int64
       IsMutant:
         type: boolean
+  models.Stats:
+    title: Stats
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
 tags:
 - name: mutant
   description: |
     MutantController operations for Mutant
+- name: stats
+  description: |
+    StatsController operations for Stats

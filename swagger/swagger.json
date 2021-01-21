@@ -45,6 +45,26 @@
                     }
                 }
             }
+        },
+        "/stats/": {
+            "get": {
+                "tags": [
+                    "stats"
+                ],
+                "description": "get Mutant Stats",
+                "operationId": "StatsController.Get Stats",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Stats"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -63,12 +83,26 @@
                     "type": "boolean"
                 }
             }
+        },
+        "models.Stats": {
+            "title": "Stats",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
         }
     },
     "tags": [
         {
             "name": "mutant",
             "description": "MutantController operations for Mutant\n"
+        },
+        {
+            "name": "stats",
+            "description": "StatsController operations for Stats\n"
         }
     ]
 }

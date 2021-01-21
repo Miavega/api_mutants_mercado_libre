@@ -16,4 +16,13 @@ func init() {
 			Filters:          nil,
 			Params:           nil})
 
+	beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:StatsController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:StatsController"],
+		beego.ControllerComments{
+			Method:           "GetStats",
+			Router:           "/",
+			AllowHTTPMethods: []string{"get"},
+			MethodParams:     param.Make(),
+			Filters:          nil,
+			Params:           nil})
+
 }

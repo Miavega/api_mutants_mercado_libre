@@ -21,6 +21,11 @@ func init() {
 				&controllers.MutantController{},
 			),
 		),
+		beego.NSNamespace("/stats",
+			beego.NSInclude(
+				&controllers.StatsController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

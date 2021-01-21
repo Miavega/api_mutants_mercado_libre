@@ -39,12 +39,14 @@ func Validate(dna []string) (bool, error) {
 			}
 			if alteracionADN > 1 {
 				if _, err := saveMutantResult(dna, true); err == nil {
+					go UpdateStats(true)
 					return true, nil
 				}
 			}
 		}
 	}
 	if _, err := saveMutantResult(dna, true); err == nil {
+		go UpdateStats(false)
 		return false, nil
 	}
 
