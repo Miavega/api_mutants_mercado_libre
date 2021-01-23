@@ -31,9 +31,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     
-    deploy:
-      name: Deploy to AWS EC2 Instance
-      run-on: ubuntu-latest
-      steps:
-        - name: Connect to EC2 Instance
-          run: ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ubuntu@ec2-18-188-92-139.us-east-2.compute.amazonaws.com
+   deploy:
+    name: Deploy to AWS EC2 Instance
+    run-on: ubuntu-latest
+    steps:
+      - name: Connect to EC2 Instance
+        run: ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ubuntu@ec2-3-139-102-224.us-east-2.compute.amazonaws.com
