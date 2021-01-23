@@ -24,6 +24,13 @@ jobs:
 
       # - name: Build and Test
       #   run: go test ./...
+      
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
