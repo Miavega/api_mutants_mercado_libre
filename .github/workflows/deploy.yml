@@ -57,6 +57,7 @@ jobs:
 
       - name: Get dependencies
         run: |
+          go version
           export GO111MODULE=on
           go mod int
           go get -v -t -d ./...
