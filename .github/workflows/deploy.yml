@@ -33,7 +33,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
       - name: test
-        run: pwd
+        run: pwd && ls
 
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
