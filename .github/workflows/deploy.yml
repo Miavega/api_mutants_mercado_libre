@@ -35,7 +35,7 @@ jobs:
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectBaseDir: /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre/.git/
+          projectBaseDir: /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre/
           args: >
             -Dsonar.organization=miavega
             -Dsonar.projectKey=Miavega_api_mutants_mercado_libre
