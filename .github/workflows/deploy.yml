@@ -38,7 +38,7 @@ jobs:
           #projectBaseDir: api_mutants_mercado_libre/
           args: >
             -Dsonar.organization=miavega
-            -Dsonar.projectKey=Miavega_api_mutants_mercado_libre
+            -Dsonar.projectKey=miavega_api_mutants_mercado_libre
             -Dsonar.projectName=api_mutants_mercado_libre
             -Dsonar.projectVersion=0.1
             -Dsonar.language=go
