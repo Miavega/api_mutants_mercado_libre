@@ -11,24 +11,19 @@ jobs:
     name: Build, Test and Analyze
     runs-on: ubuntu-latest
     steps:
-      # - name: Setup Go
-      #   uses: actions/setup-go@v2
-      #   with:
-      #     go-version: '1.13'
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.13'
 
-      # - name: Clone Repository
-      #   uses: actions/checkout@v2
+      - name: Clone Repository
+        uses: actions/checkout@v2
 
       # - name: Get Dependences
       #   run: GO111MODULE=on && go get -v -u ./...
 
       # - name: Build and Test
       #   run: go test ./...
-
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
       
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
@@ -37,31 +32,25 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      # - name: Analyze with SonarCloud
-      #   uses: sonarsource/sonarcloud-github-action@master
-      #   with:
-      #     #projectBaseDir: api_mutants_mercado_libre/
-      #     args: >
-      #       -Dsonar.organization=miavega
-      #       -Dsonar.projectKey=Miavega_api_mutants_mercado_libre
-      #       -Dsonar.projectName=api_mutants_mercado_libre
-      #       -Dsonar.projectVersion=0.1
-      #       -Dsonar.language=go
-      #       -Dsonar.exclusions=swagger/**,routers/**,database/**
-      #       -Dsonar.sources=./
-      #       -Dsonar.sources.inclusions=**/**.go
-      #       -Dsonar.test.inclusions=**/**_test.go
-      #       -Dsonar.test.exclusions=database/**
-      #       -Dsonar.sourceEncoding=UTF-8
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: SonarCloud Scan
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          #projectBaseDir: api_mutants_mercado_libre/
+          args: >
+            -Dsonar.organization=miavega
+            -Dsonar.projectKey=Miavega_api_mutants_mercado_libre
+            -Dsonar.projectName=api_mutants_mercado_libre
+            -Dsonar.projectVersion=0.1
+            -Dsonar.language=go
+            -Dsonar.exclusions=swagger/**,routers/**,database/**
+            -Dsonar.sources=./
+            -Dsonar.sources.inclusions=**/**.go
+            -Dsonar.test.inclusions=**/**_test.go
+            -Dsonar.test.exclusions=database/**
+            -Dsonar.sourceEncoding=UTF-8
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -X sonar:sonar -Dsonar.projectVersion=${{ github.run_number }} -Dsonar.organization=miavega -Dsonar.projectKey=Miavega_prueba-github-actions
     
    deploy:
     name: Deploy to AWS EC2 Instance
