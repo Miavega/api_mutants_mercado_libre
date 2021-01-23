@@ -9,7 +9,7 @@
 package routers
 
 import (
-	"github.com/Miavega/api_mutants/controllers"
+	"github.com/Miavega/api_mutants_mercado_libre/controllers"
 
 	"github.com/astaxie/beego"
 )

@@ -3,9 +3,9 @@ package controllers
 import (
 	"encoding/json"
 
-	"github.com/Miavega/api_mutants/helpers"
+	"github.com/Miavega/api_mutants_mercado_libre/helpers"
 
-	"github.com/Miavega/api_mutants/models"
+	"github.com/Miavega/api_mutants_mercado_libre/models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
 )

@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:MutantController"],
+	beego.GlobalControllerRouter["github.com/Miavega/api_mutants_mercado_libre/controllers:MutantController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants_mercado_libre/controllers:MutantController"],
 		beego.ControllerComments{
 			Method:           "Post",
 			Router:           "/",
@@ -16,7 +16,7 @@ func init() {
 			Filters:          nil,
 			Params:           nil})
 
-	beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:StatsController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants/controllers:StatsController"],
+	beego.GlobalControllerRouter["github.com/Miavega/api_mutants_mercado_libre/controllers:StatsController"] = append(beego.GlobalControllerRouter["github.com/Miavega/api_mutants_mercado_libre/controllers:StatsController"],
 		beego.ControllerComments{
 			Method:           "GetStats",
 			Router:           "/",

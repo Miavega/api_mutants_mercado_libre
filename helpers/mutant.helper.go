@@ -3,7 +3,7 @@ package helpers
 import (
 	"strings"
 
-	"github.com/Miavega/api_mutants/models"
+	"github.com/Miavega/api_mutants_mercado_libre/models"
 )
 
 // Validate validate if human is mutant

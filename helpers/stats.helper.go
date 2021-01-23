@@ -3,7 +3,7 @@ package helpers
 import (
 	"fmt"
 
-	"github.com/Miavega/api_mutants/models"
+	"github.com/Miavega/api_mutants_mercado_libre/models"
 )
 
 //UpdateStats update statistics

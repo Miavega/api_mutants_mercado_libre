@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/Miavega/api_mutants/models"
+	"github.com/Miavega/api_mutants_mercado_libre/models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 )

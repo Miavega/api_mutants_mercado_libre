@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Miavega/api_mutants/helpers"
+	"github.com/Miavega/api_mutants_mercado_libre/helpers"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"

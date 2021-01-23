@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Miavega/api_mutants/helpers"
-	_ "github.com/Miavega/api_mutants/routers"
+	"github.com/Miavega/api_mutants_mercado_libre/helpers"
+	_ "github.com/Miavega/api_mutants_mercado_libre/routers"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"

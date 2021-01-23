@@ -18,5 +18,5 @@ swagger/fonts/
 swagger/images/
 swagger/lang/
 swagger/lib/
-api_mutants
+api_mutants_mercado_libre
 .env
