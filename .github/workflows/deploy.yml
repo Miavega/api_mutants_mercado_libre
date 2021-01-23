@@ -40,3 +40,6 @@ jobs:
         uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.EC2_PRIVATE_KEY }}
+        
+      - name: Deploy code
+        run: ls && printenv
