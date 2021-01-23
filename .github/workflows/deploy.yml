@@ -55,6 +55,7 @@ jobs:
 
       - name: Get dependencies
         run: |
+          go get - v github.com/astaxie/beego
           go get -v -t -d ./...
           if [ -f Gopkg.toml ]; then
               curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
@@ -65,7 +66,7 @@ jobs:
 
       - name: Test
         run: go test -cover .
-        
+
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
         with:
