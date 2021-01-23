@@ -57,7 +57,6 @@ jobs:
         run: |
           go get -v github.com/Miavega/api_mutants_mercado_libre
           go get -v github.com/astaxie/beego
-          go get -v -t -d ./...
       - name: Build
         run: go build -v .
 
