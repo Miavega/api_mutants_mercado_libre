@@ -10,7 +10,7 @@ type ErrorController struct {
 }
 
 func (c *ErrorController) Error403() {
-	outputError := map[string]interface{}{"Success": false, "Status": "400", "Message": c.Data["mesaage"], "Data": c.Data["data"]}
+	outputError := map[string]interface{}{"Success": false, "Status": "403", "Message": c.Data["mesaage"], "Data": c.Data["data"]}
 	c.Data["json"] = outputError
 	c.ServeJSON()
 }

@@ -1,6 +1,10 @@
 package models
 
-import "github.com/astaxie/beego/orm"
+import (
+	"fmt"
+
+	"github.com/astaxie/beego/orm"
+)
 
 // MutantStructure input mutant struct
 type MutantStructure struct {
@@ -27,6 +31,8 @@ func init() {
 // last inserted Id on success.
 func AddMutant(m *Mutant) (id int64, err error) {
 	o := orm.NewOrm()
+	fmt.Println("LLEGUE?EEEEEEEEEEE")
 	id, err = o.Insert(m)
+	fmt.Println("LLEGUE?")
 	return
 }

@@ -8,6 +8,16 @@ import (
 
 // Validate validate if human is mutant
 func Validate(dna []string) (bool, error) {
+	res := validateMutant(dna)
+	var err error
+	if _, err = saveMutantResult(dna, res); err == nil {
+		go UpdateStats(res)
+	}
+
+	return res, err
+}
+
+func validateMutant(dna []string) bool {
 	var matriz [][]string
 	var alteracionADN int = 0
 
@@ -38,19 +48,12 @@ func Validate(dna []string) (bool, error) {
 				}
 			}
 			if alteracionADN > 1 {
-				if _, err := saveMutantResult(dna, true); err == nil {
-					go UpdateStats(true)
-					return true, nil
-				}
+				return true
 			}
 		}
 	}
-	if _, err := saveMutantResult(dna, true); err == nil {
-		go UpdateStats(false)
-		return false, nil
-	}
 
-	return false, nil
+	return false
 }
 
 func isMutant(a, b, c, d string) bool {

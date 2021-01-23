@@ -20,7 +20,7 @@ func init() {
 // Run the migrations
 func (m *CreateTableStats_20210121_140048) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
-	m.SQL("CREATE TABLE schema_xmen.stats (id serial NOT NULL,count_mutant_dna integer NOT NULL,count_human_dna integer NOT NULL,ratio numeric(5,1) NOT NULL,CONSTRAINT stats_pk PRIMARY KEY (id));")
+	m.SQL("CREATE TABLE schema_xmen.stats (id serial NOT NULL,count_mutant_dna integer NOT NULL,count_human_dna integer NOT NULL,ratio numeric(9,1) NOT NULL,CONSTRAINT stats_pk PRIMARY KEY (id));")
 	m.SQL("ALTER TABLE schema_xmen.stats OWNER TO postgres;")
 }
 
