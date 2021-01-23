@@ -51,7 +51,7 @@ jobs:
             cd api_mutants_mercado_libre
             docker-compose down
             git pull
-            docker-compose up --build
+            docker-compose up --build -d
         
       #- name: Deploy code
         #run: ls && printenv
