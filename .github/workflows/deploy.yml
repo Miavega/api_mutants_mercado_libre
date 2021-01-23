@@ -36,4 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Connect to EC2 Instance
-        run: ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ubuntu@ec2-3-139-102-224.us-east-2.compute.amazonaws.com
+        #run: ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ubuntu@ec2-3-139-102-224.us-east-2.compute.amazonaws.com
+        - uses: webfactory/ssh-agent@v0.4.1
+          with:
+            ssh-private-key: ${{ secrets.EC2_PRIVATE_KEY }}
