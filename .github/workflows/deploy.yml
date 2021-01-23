@@ -59,7 +59,7 @@ jobs:
         run: |
           go version
           export GO111MODULE=on
-          go mod init
+          go mod init api_mutants_mercado_libre
           go get -v -t -d ./...
 
       - name: Build
