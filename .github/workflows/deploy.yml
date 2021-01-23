@@ -68,11 +68,11 @@ jobs:
       - name: Test
         run: go test -cover .
 
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
-        with:
-          name: code-coverage-report
-          path: /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre
+      # - name: Archive code coverage results
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: code-coverage-report
+      #     path: /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre
 
   sonarCloudTrigger:
     needs: build
@@ -81,11 +81,13 @@ jobs:
     steps:
       - name: Clone Repository
         uses: actions/checkout@master
-      - name: Download code coverage results
-        uses: actions/download-artifact@v1
-        with:
-          name: code-coverage-report
-          path: /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre
+
+      # - name: Download code coverage results
+      #   uses: actions/download-artifact@v1
+      #   with:
+      #     name: code-coverage-report
+      #     path: /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre
+
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
         env:
