@@ -7,86 +7,87 @@ on:
 
 jobs:
   
-  build:
-    name: Build, Test and Analyze
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: '1.13'
-
-      - name: Clone Repository
-        uses: actions/checkout@master
-
-      - name: Get Dependences
-        run: GO111MODULE=on && go get -v -u ./...
-
-      - name: Build and Test
-        run: go test ./...
-      
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-
-      - name: Analyze with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-   
   # build:
-  #   name: Compile and Test
+  #   name: Build, Test and Analyze
   #   runs-on: ubuntu-latest
   #   steps:
+  #     - name: Setup Go
+  #       uses: actions/setup-go@v2
+  #       with:
+  #         go-version: '1.13'
+
   #     - name: Clone Repository
   #       uses: actions/checkout@master
-        
-  #     - name: Setup go
-  #       uses: actions/setup-go@v1
+
+  #     - name: Get Dependences
+  #       run: GO111MODULE=on && go get -v -u ./...
+
+  #     - name: Build and Test
+  #       run: go test ./...
+      
+  #     - name: Cache SonarCloud packages
+  #       uses: actions/cache@v1
   #       with:
-  #         go-version: ^1.13
+  #         path: ~/.sonar/cache
+  #         key: ${{ runner.os }}-sonar
+  #         restore-keys: ${{ runner.os }}-sonar
 
-  #     - name: Check out code into the Go module directory
-  #       uses: actions/checkout@v2
-
-  #     - name: Get dependencies
-  #       run: |
-  #         go get github.com/Miavega/api_mutants_mercado_libre
-  #         go get -v -t -d
-
-  #     - name: Build
-  #       run: go build -v .
-
-  #     - name: Test
-  #       run: go test -cover .
-
-  #     - name: Archive code coverage results
-  #       uses: actions/upload-artifact@v1
-  #       with:
-  #         name: code-coverage-report
-  #         path: bin
-
-  # sonarCloudTrigger:
-  #   needs: build
-  #   name: SonarCloud Trigger
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Clone Repository
-  #       uses: actions/checkout@master
-  #     - name: Download code coverage results
-  #       uses: actions/download-artifact@v1
-  #       with:
-  #         name: code-coverage-report
-  #         path: bin
   #     - name: Analyze with SonarCloud
   #       uses: sonarsource/sonarcloud-github-action@master
   #       env:
   #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+   
+  build:
+    name: Compile and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@master
+        
+      - name: Setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: ^1.13
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+
+      - name: Get dependencies
+        run: |
+          go get -v -t -d ./...
+
+      - name: Build
+        run: go build -v .
+
+      - name: Test
+        run: go test -cover .
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v1
+        with:
+          name: code-coverage-report
+          path: bin
+
+  sonarCloudTrigger:
+    needs: build
+    name: SonarCloud Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@master
+      - name: Download code coverage results
+        uses: actions/download-artifact@v1
+        with:
+          name: code-coverage-report
+          path: bin
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     name: Deploy to AWS EC2 Instance
