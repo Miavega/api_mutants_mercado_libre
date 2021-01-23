@@ -44,12 +44,9 @@ func GetStatsById(id int) (m *Stats, err error) {
 func UpdateStats(m *Stats) error {
 	var err error
 	o := orm.NewOrm()
-	//v := Stats{Id: m.Id}
-	// ascertain id exists in the database
-	//if err = o.Read(&v); err == nil {
 	if _, err = o.Update(m); err == nil {
 		return nil
 	}
-	//}
+
 	return err
 }

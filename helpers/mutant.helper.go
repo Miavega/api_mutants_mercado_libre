@@ -7,14 +7,28 @@ import (
 )
 
 // Validate validate if human is mutant
-func Validate(dna []string) (bool, error) {
-	res := validateMutant(dna)
-	var err error
-	if _, err = saveMutantResult(dna, res); err == nil {
-		go UpdateStats(res)
+func Validate(dna []string) (res bool, err error) {
+	if exist, err := getByDna(dna); err == nil {
+		if exist == nil {
+			res = validateMutant(dna)
+			var err error
+			if _, err = saveMutantResult(dna, res); err == nil {
+				go UpdateStats(res)
+			}
+			return res, err
+		}
+		return exist.IsMutant, err
 	}
 
-	return res, err
+	return false, err
+}
+
+func getByDna(dna []string) (m *models.Mutant, err error) {
+	if m, err := models.GetMutantByDna(strings.Join(dna, ",")); err == nil {
+		return m, nil
+	}
+
+	return m, err
 }
 
 func validateMutant(dna []string) bool {

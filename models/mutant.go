@@ -1,8 +1,6 @@
 package models
 
 import (
-	"fmt"
-
 	"github.com/astaxie/beego/orm"
 )
 
@@ -31,8 +29,17 @@ func init() {
 // last inserted Id on success.
 func AddMutant(m *Mutant) (id int64, err error) {
 	o := orm.NewOrm()
-	fmt.Println("LLEGUE?EEEEEEEEEEE")
 	id, err = o.Insert(m)
-	fmt.Println("LLEGUE?")
 	return
+}
+
+// GetMutantByDna retrieves Stats by DNA. Returns error if
+// Id doesn't exist
+func GetMutantByDna(dna string) (m *Mutant, err error) {
+	o := orm.NewOrm()
+	m = &Mutant{}
+	if err = o.QueryTable("mutant").Filter("dna", dna).One(m); err == nil {
+		return m, nil
+	}
+	return nil, err
 }

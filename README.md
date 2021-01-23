@@ -17,7 +17,8 @@ Docker y Docker Compose en sus últimas versiones
 
 ### Variables de entorno 🔧
 
-_Parámetros de la API, los cuales deben ser añadidos en un archivo .env creado en la raiz del proyecto._
+_Los siguientes parámetros deben ser añadidos en un archivo .env creado en la raiz del proyecto._
+_Parámetros de la API_
 
 ```
 API_NAME=[Nombre de la API]
@@ -52,7 +53,7 @@ _Subir el Docker Compose_
 docker-compose up
 ```
 
-_El servidor se ejecuta en el puerto 8085_
+_El servidor se ejecuta en el puerto seleccionado en la varible de entorno MUTANTS_CRUD_HTTP_PORT_
 _http://localhost:8085/_
 
 ## Construido con 🛠️
