@@ -11,19 +11,19 @@ jobs:
     name: Build, Test and Analyze
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: '1.13'
+      # - name: Setup Go
+      #   uses: actions/setup-go@v2
+      #   with:
+      #     go-version: '1.13'
 
-      - name: Clone Repository
-        uses: actions/checkout@v2
+      # - name: Clone Repository
+      #   uses: actions/checkout@v2
 
-      - name: Get Dependences
-        run: GO111MODULE=on && go get -v -u ./...
+      # - name: Get Dependences
+      #   run: GO111MODULE=on && go get -v -u ./...
 
-      - name: Build and Test
-        run: go test ./...
+      # - name: Build and Test
+      #   run: go test ./...
 
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
