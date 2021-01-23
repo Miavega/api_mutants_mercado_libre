@@ -55,7 +55,7 @@ jobs:
 
       - name: Get dependencies
         run: |
-          cd /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre
+          go get https://github.com/Miavega/api_mutants_mercado_libre.git
           go get -v -t -d
 
       - name: Build
