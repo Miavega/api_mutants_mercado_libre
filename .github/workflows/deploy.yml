@@ -57,7 +57,7 @@ jobs:
 
       - name: Get dependencies
         run: |
-          GO111MODULE=on
+          export GO111MODULE="on"
           go get -v -t -d ./...
 
       - name: Build
