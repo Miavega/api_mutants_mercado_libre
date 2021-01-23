@@ -47,6 +47,11 @@ jobs:
           script: |
             whoami
             ls -al
+            git clone https://github.com/Miavega/api_mutants_mercado_libre.git
+            cd api_mutants_mercado_libre
+            docker-compose down
+            git pull
+            docker-compose up --build
         
       #- name: Deploy code
         #run: ls && printenv
