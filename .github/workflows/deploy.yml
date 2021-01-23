@@ -56,6 +56,7 @@ jobs:
       - name: Get dependencies
         run: |
           cd /home/runner/work/api_mutants_mercado_libre/api_mutants_mercado_libre
+          go get -v -t -d
 
       - name: Build
         run: go build -v .
