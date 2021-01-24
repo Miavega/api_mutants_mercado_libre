@@ -31,28 +31,22 @@ func (c *MutantController) Post() {
 	var mutant models.MutantStructure
 	valid := validation.Validation{}
 	json.Unmarshal(c.Ctx.Input.RequestBody, &mutant)
-	if mutantValidate, err := valid.Valid(&mutant); err == nil {
-		if mutantValidate {
-			if res, err := helpers.Validate(mutant.Dna); err == nil {
-				if !res {
-					c.Data["mesaage"] = "DNA evaluated is from a human"
-					c.Abort("403")
-				}
-				c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA evaluated is from a Mutant"}
-			} else {
-				c.Data["mesaage"] = "Request failure"
-				c.Abort("500")
+	if mutantValidate, err := valid.Valid(&mutant); err == nil && mutantValidate {
+		if res, err := helpers.Validate(mutant.Dna); err == nil {
+			if !res {
+				c.Data["mesaage"] = "DNA evaluated is from a human"
+				c.Abort("403")
 			}
-		} else {
-			for _, err := range valid.Errors {
-				c.Data["mesaage"] = "Request failure: Input not valid - " + err.Key + err.Message
-			}
-			c.Abort("422")
+			c.Data["json"] = map[string]interface{}{"Success": res, "Status": "200", "Message": "DNA evaluated is from a Mutant"}
+			c.ServeJSON()
 		}
-	} else {
-		c.Data["mesaage"] = "Request failure"
-		c.Abort("500")
+	}
+	if len(valid.Errors) > 0 {
+		c.Data["mesaage"] = "Request failure: Input not valid - " + valid.Errors[0].Key + valid.Errors[0].Message
+		c.Abort("422")
 	}
 
-	c.ServeJSON()
+	c.Data["mesaage"] = "Request failure"
+	c.Abort("500")
+
 }

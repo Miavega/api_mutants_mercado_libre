@@ -16,7 +16,7 @@ func (c *ErrorController) Error403() {
 }
 
 func (c *ErrorController) Error500() {
-	outputError := map[string]interface{}{"Success": false, "Status": "502", "Message": c.Data["mesaage"], "Data": c.Data["data"]}
+	outputError := map[string]interface{}{"Success": false, "Status": "500", "Message": c.Data["mesaage"], "Data": c.Data["data"]}
 	c.Data["json"] = outputError
 	c.ServeJSON()
 }
