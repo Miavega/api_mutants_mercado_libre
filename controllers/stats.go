@@ -26,7 +26,7 @@ func (c *StatsController) GetStats() {
 	v, err := models.GetStatsById(1)
 	if err != nil {
 		logs.Error(err)
-		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"
+		c.Data["mesaage"] = "Error service GetStatsById: The request contains an incorrect parameter or no record exists"
 		c.Abort("404")
 	} else {
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
