@@ -29,7 +29,8 @@ func (c *StatsController) GetStats() {
 		c.Data["mesaage"] = "Error service GetStatsById: The request contains an incorrect parameter or no record exists"
 		c.Abort("404")
 	} else {
-		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
+		c.Data["json"] = map[string]interface{}{"count_mutant_dna": v.CountMutantDna, "count_human_dna": v.CountHumanDna, "ratio": v.Ratio}
+		// c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
 	}
 	c.ServeJSON()
 }

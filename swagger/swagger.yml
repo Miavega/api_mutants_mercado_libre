@@ -25,7 +25,7 @@ paths:
         schema:
           $ref: '#/definitions/models.Mutant'
       responses:
-        "201":
+        "200":
           description: ""
           schema:
             $ref: '#/definitions/models.Mutant'
