@@ -6,7 +6,8 @@ import (
 	"github.com/Miavega/api_mutants_mercado_libre/helpers"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql"
+
+	//_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 )
 
@@ -88,10 +89,9 @@ func testWithDb(t *testing.T, f func(t *testing.T)) {
 	f(t)
 }
 
-func Test_ValidateHuman(t *testing.T) {
+func TestValidateHuman(t *testing.T) {
 	defer func() {
 		if r := recover(); r != nil {
-
 			t.Error("Error", r)
 			t.Fail()
 		} else {
@@ -101,6 +101,24 @@ func Test_ValidateHuman(t *testing.T) {
 
 	testWithDb(t, func(t *testing.T) {
 		request := []string{"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"}
+		if _, err := helpers.Validate(request); err != nil {
+			panic(err.Error())
+		}
+	})
+}
+
+func TestValidateMutant(t *testing.T) {
+	defer func() {
+		if r := recover(); r != nil {
+			t.Error("Error", r)
+			t.Fail()
+		} else {
+			t.Log("OK")
+		}
+	}()
+
+	testWithDb(t, func(t *testing.T) {
+		request := []string{"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCGCTA", "TCACTG"}
 		if _, err := helpers.Validate(request); err != nil {
 			panic(err.Error())
 		}
