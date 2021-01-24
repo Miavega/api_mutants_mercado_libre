@@ -68,7 +68,7 @@ jobs:
         run: go build -v .
 
       - name: Test
-        run: go test -coverprofile=coverprofile.out ./...  -coverpkg=./helpers
+        run: go test -cover ./...
 
       # - name: Archive code coverage results
       #   uses: actions/upload-artifact@v1
