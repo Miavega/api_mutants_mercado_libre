@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -42,6 +43,7 @@ func TestGet(t *testing.T) {
 		beego.BeeApp.Handlers.ServeHTTP(w, r)
 
 		var response = map[string]interface{}{}
+		json.Unmarshal(w.Body.Bytes(), &response)
 
 		Convey("Subject: Test Stats Endpoint\n", t, func() {
 			Convey("Status Code Should Be 200", func() {
