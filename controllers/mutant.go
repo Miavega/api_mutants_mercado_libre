@@ -7,7 +7,6 @@ import (
 
 	"github.com/Miavega/api_mutants_mercado_libre/models"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/validation"
 )
 
@@ -31,8 +30,6 @@ func (c *MutantController) URLMapping() {
 func (c *MutantController) Post() {
 	var mutant models.MutantStructure
 	valid := validation.Validation{}
-	logs.Info(c.Ctx.Input.RequestBody)
-	logs.Info(json.Unmarshal(c.Ctx.Input.RequestBody, &mutant))
 	json.Unmarshal(c.Ctx.Input.RequestBody, &mutant)
 	if mutantValidate, err := valid.Valid(&mutant); err == nil && mutantValidate {
 		if res, err := helpers.Validate(mutant.Dna); err == nil {

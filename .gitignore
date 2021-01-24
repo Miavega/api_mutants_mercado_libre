@@ -21,4 +21,6 @@ swagger/lib/
 api_mutants_mercado_libre
 .env
 /*.out
-coverage.html
+coveragecontrollers.html
+coveragehelpers.html
+coveragemodels.html
