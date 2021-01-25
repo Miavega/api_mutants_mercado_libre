@@ -7,8 +7,6 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/astaxie/beego/logs"
-
 	"github.com/astaxie/beego"
 	_ "github.com/lib/pq"
 	. "github.com/smartystreets/goconvey/convey"
@@ -16,7 +14,6 @@ import (
 
 func TestPost(t *testing.T) {
 	request := []byte(`{"dna": ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}`)
-	logs.Info(request)
 	r, _ := http.NewRequest("POST", "/v1/mutant/", bytes.NewBuffer(request))
 	r.Header.Set("Content-Type", "application/json")
 	r.Header.Set("Content-Type", "text/plain")

@@ -23,7 +23,7 @@ func init() {
 }
 
 func testWithDb(t *testing.T, f func(t *testing.T)) {
-	orm.RegisterDataBase("default", "postgres", "postgres://postgres:mutants_db@ec2-3-139-102-224.us-east-2.compute.amazonaws.com/mutants_db?sslmode=disable&search_path=schema_xmen")
+	orm.RegisterDataBase("default", "postgres", "postgres://postgres:mutants_db@mutantsdb/mutants_db?sslmode=disable&search_path=schema_xmen")
 	f(t)
 }
 
