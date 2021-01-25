@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"os"
 	"testing"
 
 	"github.com/Miavega/api_mutants_mercado_libre/helpers"
@@ -18,7 +19,12 @@ func init() {
 }
 
 func testWithDb(t *testing.T, f func(t *testing.T)) {
-	orm.RegisterDataBase("default", "postgres", "postgres://postgres:mutants_db@mutantsdb/mutants_db?sslmode=disable&search_path=schema_xmen")
+	pgUser := os.Getenv("POSTGRES_USER")
+	pgPass := os.Getenv("POSTGRES_PASSWORD")
+	pgUrls := os.Getenv("MUTANTS_CRUD_PGDB")
+	pgDb := os.Getenv("POSTGRES_DB")
+	pgSchema := os.Getenv("POSTGRES_SCHEMA")
+	orm.RegisterDataBase("default", "postgres", "postgres://"+pgUser+":"+pgPass+"@"+pgUrls+"/"+pgDb+"?sslmode=disable&search_path="+pgSchema+"")
 
 	f(t)
 }

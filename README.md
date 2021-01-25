@@ -18,6 +18,7 @@ Docker y Docker Compose en sus últimas versiones
 ### Variables de entorno 🔧
 
 _Los siguientes parámetros deben ser añadidos en un archivo .env creado en la raiz del proyecto._
+
 _Parámetros de la API_
 
 ```
@@ -55,6 +56,34 @@ docker-compose up
 
 _El servidor se ejecuta en el puerto seleccionado en la varible de entorno MUTANTS_CRUD_HTTP_PORT_
 _http://localhost:8085/_
+
+### Pruebas 🔍
+
+_Las pruebas se ejecutan de forma automática al ejecutar el Docker compose. Al finalizar, se generan reportes en html los cuales pueden ser visualizados desde un navegador como se muestra en la imagen._
+
+![Pruebas unitarias](https://i.imgur.com/e9ZwnEH.png)
+
+_Se pueden visualizar algunas métricas en SonarCloud en la siguiente URL._
+_https://sonarcloud.io/dashboard?id=Miavega_api_mutants_mercado_libre_
+
+### Visualización 👀
+
+_La API expone los servicios mutant de tipo POST y stats de tipo GET, los cuales se acceden en las siguientes rutas. Cabe resaltar que el puerto cambia dependiendo del cual haya sido asignado en las variables de entorno en los pasos anteriores._
+
+```
+http://localhost:8085/v1/mutant
+http://localhost:8085/v1/stats
+```
+
+_Además, se expone un Swagger para la documentación de los servicios. Este puede ser consultado en la siguiente ruta._
+
+```
+http://localhost:8085/swagger/
+```
+_Se observará un contenido como el mostrado en la siguiente imagen._
+
+![Swagger](https://i.imgur.com/tHN5Rjz.png)
+
 
 ## Construido con 🛠️
 
